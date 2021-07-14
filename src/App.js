@@ -3,7 +3,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
 
-function App() {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const loginHandler = (email, password) => {
@@ -15,7 +15,7 @@ function App() {
   const logoutHandler = () => {
     setIsLoggedIn(false);
   };
-  
+
   return (
     <>
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />

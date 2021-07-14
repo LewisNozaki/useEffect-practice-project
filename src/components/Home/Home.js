@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../UI/Card/Card';
 import styles from './Home.module.css';
 
-const Home = (props) => {
+const Home = ({ onLogout }) => {
   return (
     <Card className={styles.home}>
       <h1>Welcome back!</h1>
