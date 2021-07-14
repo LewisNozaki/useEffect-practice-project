@@ -14,11 +14,16 @@
 .nav a {
   text-decoration: none;
   color: white;
+  padding: 0.5rem 0.5rem;
 }
 
 .nav a:hover,
 .nav a:active {
   color: #f3cafb;
+  font: inherit;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 5px solid #d86cc0;
 }
 
 .nav button {

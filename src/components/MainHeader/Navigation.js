@@ -16,7 +16,7 @@ const Navigation = ({ isLoggedIn, onLogout }) => {
             <a href="/">Admin</a>
           </li>
         )}
-
+        
         {isLoggedIn && (
           <li>
             <button onClick={onLogout}>Logout</button>

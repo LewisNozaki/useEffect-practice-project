@@ -15,7 +15,7 @@ const App = () => {
   const logoutHandler = () => {
     setIsLoggedIn(false);
   };
-
+  
   return (
     <>
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />

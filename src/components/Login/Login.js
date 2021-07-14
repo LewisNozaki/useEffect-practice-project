@@ -50,6 +50,7 @@ const Login = ({ onLogin }) => {
             value={enteredEmail}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
+            autoComplete="off"
           />
         </div>
         <div
