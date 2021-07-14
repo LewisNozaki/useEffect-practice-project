@@ -25,7 +25,7 @@ const Login = ({ onLogin }) => {
       e.target.value.trim().length > 6 && enteredEmail.includes('@')
     );
   };
-
+  
   const validateEmailHandler = () => setEmailIsValid(enteredEmail.includes('@'));
 
   const validatePasswordHandler = () => setPasswordIsValid(enteredPassword.trim().length > 6);
@@ -34,7 +34,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     onLogin(enteredEmail, enteredPassword);
   };
-  
+
   return (
     <Card className={styles.login}>
       <form onSubmit={submitHandler}>
