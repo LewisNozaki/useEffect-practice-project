@@ -1,51 +1,46 @@
 import React, { useState } from 'react';
-
 import Card from '../UI/Card/Card';
-import classes from './Login.module.css';
+import styles from './Login.module.css';
 import Button from '../UI/Button/Button';
 
-const Login = (props) => {
+const Login = ({ onLogin }) => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState('');
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const emailChangeHandler = (event) => {
-    setEnteredEmail(event.target.value);
+  const emailChangeHandler = e => {
+    setEnteredEmail(e.target.value);
 
     setFormIsValid(
-      event.target.value.includes('@') && enteredPassword.trim().length > 6
+      e.target.value.includes('@') && enteredPassword.trim().length > 6
     );
   };
 
-  const passwordChangeHandler = (event) => {
-    setEnteredPassword(event.target.value);
+  const passwordChangeHandler = e => {
+    setEnteredPassword(e.target.value);
 
     setFormIsValid(
-      event.target.value.trim().length > 6 && enteredEmail.includes('@')
+      e.target.value.trim().length > 6 && enteredEmail.includes('@')
     );
   };
 
-  const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
-  };
+  const validateEmailHandler = () => setEmailIsValid(enteredEmail.includes('@'));
 
-  const validatePasswordHandler = () => {
-    setPasswordIsValid(enteredPassword.trim().length > 6);
-  };
+  const validatePasswordHandler = () => setPasswordIsValid(enteredPassword.trim().length > 6);
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    props.onLogin(enteredEmail, enteredPassword);
+  const submitHandler = e => {
+    e.preventDefault();
+    onLogin(enteredEmail, enteredPassword);
   };
-
+  
   return (
-    <Card className={classes.login}>
+    <Card className={styles.login}>
       <form onSubmit={submitHandler}>
         <div
-          className={`${classes.control} ${
-            emailIsValid === false ? classes.invalid : ''
+          className={`${styles.control} ${
+            emailIsValid === false ? styles.invalid : ''
           }`}
         >
           <label htmlFor="email">E-Mail</label>
@@ -58,8 +53,8 @@ const Login = (props) => {
           />
         </div>
         <div
-          className={`${classes.control} ${
-            passwordIsValid === false ? classes.invalid : ''
+          className={`${styles.control} ${
+            passwordIsValid === false ? styles.invalid : ''
           }`}
         >
           <label htmlFor="password">Password</label>
@@ -71,8 +66,8 @@ const Login = (props) => {
             onBlur={validatePasswordHandler}
           />
         </div>
-        <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+        <div className={styles.actions}>
+          <Button type="submit" className={styles.btn} disabled={!formIsValid}>
             Login
           </Button>
         </div>
