@@ -12,7 +12,7 @@ const Login = ({ onLogin }) => {
 
   const emailChangeHandler = e => {
     setEnteredEmail(e.target.value);
-
+    
     setFormIsValid(
       e.target.value.includes('@') && enteredPassword.trim().length > 6
     );
