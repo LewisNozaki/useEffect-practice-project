@@ -10,11 +10,13 @@ const Login = ({ onLogin }) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
+  // useEffect is a hook that helps you deal with code that should be executed in response to something else.
+  // Something like the component being loaded, http requests, or in this example, the email and password state changing.
   useEffect(() => {
     setFormIsValid(enteredEmail.includes('@') && enteredPassword.trim().length > 6);
 
   }, [enteredEmail, enteredPassword]);
-  
+
   const emailChangeHandler = e => {
     setEnteredEmail(e.target.value);
   };
