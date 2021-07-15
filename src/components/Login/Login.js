@@ -14,8 +14,20 @@ const Login = ({ onLogin }) => {
   // Something like the component being loaded, http requests, or in this example, the email and password state changing.
   // Those are called "side effects".
   useEffect(() => {
-    setFormIsValid(enteredEmail.includes('@') && enteredPassword.trim().length > 6);
-
+    const validityTimer = setTimeout(() => {
+      console.log("checking form validity");
+      setFormIsValid(enteredEmail.includes('@') && enteredPassword.trim().length > 6);
+    }, 500);
+    
+    // Cleanup function
+    // the cleanup functions runs before the other logic every time useEffect is called EXCEPT for the very first time when the component is rendered.
+    // In this example, because we do not want the setFormIsValid to run on every key stroke, we create a setTimeOut function to wait 5 seconds before 
+    // validation. Then, with each key stroke, we run the clearTimeOut function to restart the timer. This should result in the setFormIsValid to run
+    // at least when the user has finished typing. 
+    return () => {
+      console.log("clean up");
+      clearTimeout(validityTimer);
+    };
   }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = e => {
