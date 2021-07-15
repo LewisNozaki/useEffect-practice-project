@@ -10,11 +10,12 @@ const App = () => {
   useEffect(() => {
     // Checking local storage for the isLoggedIn key-value pair.
     const LSisLoggedIn = localStorage.getItem("isLoggedIn");
-
+    
     // Check if LSisLoggedIn returns "1" or true
     if (LSisLoggedIn) {
       setIsLoggedIn(true);
     };
+
   }, [])
 
   const loginHandler = (email, password) => {
