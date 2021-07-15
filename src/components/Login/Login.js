@@ -17,7 +17,7 @@ const Login = ({ onLogin }) => {
     const validityTimer = setTimeout(() => {
       console.log("checking form validity");
       setFormIsValid(enteredEmail.includes('@') && enteredPassword.trim().length > 6);
-    }, 1000);
+    }, 600);
     
     // Cleanup function
     // the cleanup functions runs before the other logic every time useEffect is called EXCEPT for the very first time when the component is rendered.
