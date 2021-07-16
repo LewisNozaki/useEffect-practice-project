@@ -29,7 +29,7 @@ const Login = ({ onLogin }) => {
       clearTimeout(validityTimer);
     };
   }, [enteredEmail, enteredPassword]);
-
+  
   const emailChangeHandler = e => {
     setEnteredEmail(e.target.value);
   };

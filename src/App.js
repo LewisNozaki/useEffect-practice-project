@@ -15,7 +15,7 @@ const App = () => {
     if (LSisLoggedIn) {
       setIsLoggedIn(true);
     };
-
+    
   }, [])
 
   const loginHandler = (email, password) => {
